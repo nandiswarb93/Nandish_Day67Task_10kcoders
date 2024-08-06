@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <pre>
+        function Car(make, model, year) {
+            this.make = make;
+            this.model = model;
+            this.year = year;
+            this.getDescription = function() {
+                return `This car is a ${this.year} ${this.make} ${this.model}.`;
+            };
+        }
+        
+        const myCar = new Car('Toyota', 'Camry', 2021);
+        
+        console.log(myCar.getDescription());  
+        
+        
+        
+        
+        function showCarDetails(color, owner) {
+            return `${this.year} ${this.make} ${this.model} is ${color} and owned by ${owner}.`;
+        }
+        
+        const details = showCarDetails.call(myCar, 'blue', 'Alice');
+        console.log(details);  
+        
+        
+        
+        
+        const applyDetails = showCarDetails.apply(myCar, ['blue', 'Alice']);
+        console.log(applyDetails);  
+        
+        
+        
+        
+        
+        const displayBoundDetails = showCarDetails.bind(myCar);
+        const boundDetails = displayBoundDetails('blue', 'Alice');
+        console.log(boundDetails); 
+    </pre>
+    <script>
+function Car(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.getDescription = function() {
+        return `This car is a ${this.year} ${this.make} ${this.model}.`;
+    };
+}
+
+const myCar = new Car('Toyota', 'Camry', 2021);
+
+console.log(myCar.getDescription());  
+
+
+
+
+function showCarDetails(color, owner) {
+    return `${this.year} ${this.make} ${this.model} is ${color} and owned by ${owner}.`;
+}
+
+const details = showCarDetails.call(myCar, 'blue', 'Alice');
+console.log(details);  
+
+
+
+
+const applyDetails = showCarDetails.apply(myCar, ['blue', 'Alice']);
+console.log(applyDetails);  
+
+
+
+
+
+const displayBoundDetails = showCarDetails.bind(myCar);
+const boundDetails = displayBoundDetails('blue', 'Alice');
+console.log(boundDetails); 
+
+    </script>
+</body>
+</html>
